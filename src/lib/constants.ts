@@ -1,4 +1,6 @@
-import { Home } from "lucide-react";
+import { BookTemplate, Home, Logs } from "lucide-react";
+
+import { Workflow ,Settings, Cat,PartyPopper} from "lucide-react";
 
 export const clients = [...new Array(10)].map((client, index) => ({
     href: `/${index + 1}.png`,
@@ -101,11 +103,11 @@ export const clients = [...new Array(10)].map((client, index) => ({
   ];
   export const menuOptions = [
     { name: 'Dashboard', Component: Home, href: '/dashboard' },
-    { name: 'Workflows', Component: Workflows, href: '/workflows' },
+    { name: 'Workflows', Component: Workflow, href: '/workflows' },
     { name: 'Settings', Component: Settings, href: '/settings' },
-    { name: 'Connections', Component: Category, href: '/connections' },
-    { name: 'Billing', Component: Payment, href: '/billing' },
-    { name: 'Templates', Component: Templates, href: '/templates' },
+    { name: 'Connections', Component: Cat, href: '/connections' },
+    { name: 'Billing', Component: PartyPopper, href: '/billing' },
+    { name: 'Templates', Component: BookTemplate, href: '/templates' },
     { name: 'Logs', Component: Logs, href: '/logs' },
   ]
   
