@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex bg-black min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex bg-black min-h-screen flex-col items-center justify-between p-24 w-full">
       <Navbar/>
       <section className="h-screen w-full  bg-neutral-950 rounded-md  !overflow-visible relative flex flex-col items-center  antialiased">
 
@@ -28,7 +28,7 @@ export default function Home() {
                     Start For Free Today
                   </span>
                 </Button>
-                <h1 className="text-5xl md:text-8xl  bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-600 font-sans font-bold">
+                <h1 className="text-5xl md:text-8xl  bg-clip-text text-transparent bg-gradient-to-b  to-neutral-600 font-sans font-bold">
                   Automate Your Work With AutoNode
                 </h1>
           </div>
@@ -57,16 +57,9 @@ export default function Home() {
       />
           <section >
       <HeroParallax products={products}></HeroParallax>
-
+       
           </section>
-          <section className="mt-[-500px]">
-          <LampContainer>
-    
-        Build lamps <br /> the right way
-      
-      
-    </LampContainer>
-          </section>
+         
 
     </main>
   );

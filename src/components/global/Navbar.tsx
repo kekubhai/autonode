@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-async-client-component */
+'use client'
 import { MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
