@@ -11,7 +11,7 @@ import {
 import { menuOptions } from '@/lib/constants'
 import clsx from 'clsx'
 import { Separator } from '@/components/ui/separator'
-import { Database, GitBranch, LucideMousePointerClick } from 'lucide-react'
+import { Database, GitBranch, LucideMousePointerClick, School } from 'lucide-react'
 import { ModeToggle } from '../global/mode-toggle'
 
 type Props = {}
@@ -26,7 +26,8 @@ const MenuOptions = (props: Props) => {
           className="flex font-bold flex-row "
           href="/"
         >
-          fuzzie.
+          AutoNode
+
         </Link>
         <TooltipProvider>
           {menuOptions.map((menuItem) => (
@@ -44,9 +45,7 @@ const MenuOptions = (props: Props) => {
                         }
                       )}
                     >
-                      <menuItem.Component
-                        selected={pathName === menuItem.href}
-                      />
+                      <menuItem.Component />
                     </Link>
                   </li>
                 </TooltipTrigger>
@@ -84,7 +83,7 @@ const MenuOptions = (props: Props) => {
             <div className="border-l-2 border-muted-foreground/50 h-6 absolute left-1/2 transform translate-x-[-50%] -bottom-[30px]"></div>
           </div>
           <div className="relative dark:bg-[#353346]/70 p-2 rounded-full dark:border-t-[2px] border-[1px] dark:border-t-[#353346]">
-            <GitBranch
+            <School
               className="text-muted-foreground"
               size={18}
             />
