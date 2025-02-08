@@ -1,3 +1,4 @@
+import ProfileForm from '@/components/forms/profile-forms'
 import React from 'react'
 
 type Props = {}
@@ -16,6 +17,7 @@ const page = (props: Props) => {
             Add or update your information
           </p>
         </div>
+        <ProfileForm user={undefined} />
         </h1>
     </div>
   )
