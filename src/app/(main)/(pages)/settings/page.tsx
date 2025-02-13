@@ -1,5 +1,6 @@
 import ProfileForm from '@/components/forms/profile-forms'
 import React from 'react'
+import ProfilePicture from './components/profile-picture'
 
 type Props = {}
 
@@ -17,6 +18,9 @@ const page = (props: Props) => {
             Add or update your information
           </p>
         </div>
+        <ProfilePicture>
+
+        </ProfilePicture>
         <ProfileForm user={undefined} />
         </h1>
     </div>

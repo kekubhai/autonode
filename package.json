@@ -21,6 +21,8 @@
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
+    "@uploadcare/file-uploader": "^1.13.1",
+    "@uploadcare/react-uploader": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.3.1",
