@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-async-client-component */
 'use client'
+import { UserButton } from '@clerk/nextjs'
 import { MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -64,7 +65,7 @@ const Navbar = async(props:Props) => {
             {true ? 'Dashboard' : 'Get Started'}
           </span>
         </Link>
-      
+      <UserButton/>
         <MenuIcon className="md:hidden bg-white" />
       </aside>
     </header>
