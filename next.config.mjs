@@ -1,6 +1,22 @@
+import { hostname } from 'os';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+        remotePatterns:[{
+
+            protocol:'https',
+            hostname:'img.clerk.com',
+        }
+
+        ],
+        remotePatterns:[{
+
+            protocol:'https',
+            hostname:'ucarecdn.com',
+        }
+
+        ],
         domains: [
             'avatars.githubusercontent.com', 
             'lh3.googleusercontent.com', 

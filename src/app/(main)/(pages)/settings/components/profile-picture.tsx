@@ -45,7 +45,7 @@ const ProfilePicture = ({userImage, onDelete,onUpload}:Props) => {
 
      ):(
 
-      <UploadCareButton onUpload={(e: string) => { console.log(e); }}/>
+      <UploadCareButton onUpload={onUpload} />
      )}
         </div>
     </div>

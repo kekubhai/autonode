@@ -1,58 +1,60 @@
-'use client'
-import React, { useEffect, useRef } from 'react'
+'use client';
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'lr-config': any;
-      'lr-file-uploader-regular': any;
-      'lr-upload-ctx-provider': any;
-    }
-  }
-}
-import * as LR from "@uploadcare/file-uploader"
-import { useRouter } from 'next/navigation'
+import React, { useEffect, useRef } from 'react';
+import { FileUploaderRegular } from '@uploadcare/react-uploader/next';
+import * as LR from '@uploadcare/file-uploader';
+import { useRouter } from 'next/navigation';
+import '@uploadcare/react-uploader/core.css';
 
-type Props = {
-  onUpload: (e: string) => any
+interface Props {
+  onUpload?: (fileUrl: string) => void;
 }
 
-
-
-const UploadCareButton = ({ onUpload }: Props) => {
-  const router = useRouter()
+const UploadCareButton = ({onUpload}:Props) => {
+  const router = useRouter();
   const ctxProviderRef = useRef<
     typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider
-  >(null)
+  >(null);
 
+  // Function to handle upload success
+  const handleUpload = async (cdnUrl: string) => {
+    console.log('File uploaded:', cdnUrl);
+    router.refresh();
+  };
+
+  // Event listener for Uploadcare Blocks uploader
   useEffect(() => {
-    const handleUpload = async (e: any) => {
-      const file = await onUpload(e.detail.cdnUrl)
-      if (file) {
-        router.refresh()
+    const handleFileUpload = async (e: any) => {
+      const fileUrl = e.detail.cdnUrl;
+      if (fileUrl) {
+        await handleUpload(fileUrl);
       }
-    }
-    ctxProviderRef.current?.addEventListener('file-upload-success', handleUpload)
-  }, [])
+    };
+
+    ctxProviderRef.current?.addEventListener('file-upload-success', handleFileUpload);
+    return () => {
+      ctxProviderRef.current?.removeEventListener('file-upload-success', handleFileUpload);
+    };
+  }, []);
 
   return (
-    <div>
-      <lr-config
-        ctx-name="my-uploader"
-        pubkey="a9428ff5ff90ae7a64eb"
-      />
+    <div className="p-4 space-y-6">
+      {/* React Uploader */}
+      <div className="border p-4 rounded shadow">
+        <h2 className="text-lg font-semibold mb-2">Drop your Files here</h2>
+        <FileUploaderRegular
+          sourceList="local, camera, facebook, gdrive"
+          cameraModes="photo, video"
+          classNameUploader="uc-light"
+          pubkey="15f8fd37636ae1525cdf"
+          onFileAdded={(file) => file && file.cdnUrl && handleUpload(file.cdnUrl)}
+        />
+      </div>
 
-      <lr-file-uploader-regular
-        ctx-name="my-uploader"
-       
-      />
-
-      <lr-upload-ctx-provider
-        ctx-name="my-uploader"
-        ref={ctxProviderRef}
-      />
+      {/* Uploadcare Blocks Uploader */}
+    
     </div>
-  )
-}
+  );
+};
 
-export default UploadCareButton
+export default UploadCareButton;
