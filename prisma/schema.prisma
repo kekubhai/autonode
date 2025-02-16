@@ -11,7 +11,7 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid()) // Use uuid() instead of autoincrement()
 
   clerkId      String  @unique
   name         String?
@@ -33,6 +33,7 @@ model User {
   workflows             Workflows[]
 }
 
+
 model LocalGoogleCredential {
   id          String @id @default(uuid())
   accessToken String @unique
@@ -45,7 +46,7 @@ model LocalGoogleCredential {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  userId Int  @unique
+  userId String  @unique
   user   User @relation(fields: [userId], references: [id])
 }
 

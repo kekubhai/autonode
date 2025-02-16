@@ -18,6 +18,7 @@ const Navbar = async(props:Props) => {
           alt="fuzzie logo"
           className="shadow-sm"
         />
+        
         <p className="text-3xl font-bold">ode</p>
       </aside>
       <nav className='absolute left-[50%] top-[50%] transform translate-x-2 translate-y-2 hidden md:block'>
@@ -65,7 +66,7 @@ const Navbar = async(props:Props) => {
             {true ? 'Dashboard' : 'Get Started'}
           </span>
         </Link>
-      <UserButton/>
+      
         <MenuIcon className="md:hidden bg-white" />
       </aside>
     </header>
