@@ -1,4 +1,4 @@
-'use client'
+
 import Navbar from "@/components/global/Navbar";
 import { Button } from "@/components/ui/button";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";

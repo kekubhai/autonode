@@ -1,8 +1,11 @@
+
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-providers";
 import { ClerkProvider } from '@clerk/nextjs'
+import ModalProvider from "@/providers/modal-provider";
+import { Toaster } from "sonner";
 const inter = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,9 +25,12 @@ export default function RootLayout({
       <body className={inter.className}>
 
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange >
+<ModalProvider>
 
         {children}
+</ModalProvider>
         </ThemeProvider>
+       
         </body>
     </html>
         </ClerkProvider>
