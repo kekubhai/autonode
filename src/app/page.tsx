@@ -1,12 +1,11 @@
-
+'use client'
 import Navbar from "@/components/global/Navbar";
 import { Button } from "@/components/ui/button";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { LampContainer } from "@/components/ui/lamp";
+
 import { clients, products } from "@/lib/constants";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Home() {

@@ -4,7 +4,10 @@ type Props = {}
 
 const Page = (props: Props) => {
 
-  return <div>Page</div>
+  return <div className='h-4'>
+
+    
+  </div>
 }
 
 export default Page
