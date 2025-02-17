@@ -12,9 +12,12 @@ const Page = (props: Props) => {
         Workflows
         <WorkflowButton />
       </h1>
-    <Workflow/>
+    <Workflow name={'Creating a test workflow'} description={'Automation Workflow'} id={'332452'} publish={null}/>
+    <Workflow name={'Creating a test workflow'} description={'Automation Workflow'} id={'332452'} publish={null}/>
+    <Workflow name={'Creating a test workflow'} description={'Automation Workflow'} id={'332452'} publish={null}/>
     </div>
   )
+  
 }
 
 export default Page

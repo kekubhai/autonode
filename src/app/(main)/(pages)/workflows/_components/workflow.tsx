@@ -69,7 +69,7 @@ const Workflow = ({ description, id, name, publish }: Props) => {
           {publish! ? 'On' : 'Off'}
         </Label>
         <Switch
-          id="airplane-mode"
+          id=""
           // onClick={onPublishFlow}
           defaultChecked={publish!}
         />
