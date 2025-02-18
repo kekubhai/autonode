@@ -25,6 +25,7 @@
     "@tsparticles/slim": "^3.8.1",
     "@uploadcare/file-uploader": "^1.13.1",
     "@uploadcare/react-uploader": "^1.5.0",
+    "@xyflow/react": "^12.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
