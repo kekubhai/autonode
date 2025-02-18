@@ -80,7 +80,7 @@ export const onCreateNodeTemplate = async (
       })
 
       if (channelList) {
-        //remove duplicates before insert
+        
         const NonDuplicated = channelList.slackChannels.filter(
           (channel) => channel !== channels![0].value
         )
@@ -167,7 +167,7 @@ export const onCreateWorkflow = async (name: string, description: string) => {
   }
 }
 
-export const onGetNodesEdges = async (flowId: string) => {
+export const onCreateNodesEdges = async (flowId: string) => {
   const nodesEdges = await db.workflows.findUnique({
     where: {
       id: flowId,
