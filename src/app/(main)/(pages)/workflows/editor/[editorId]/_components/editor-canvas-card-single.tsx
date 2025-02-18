@@ -2,8 +2,8 @@ import { EditorCanvasCardType } from '@/lib/types.ts'
 import { useEditor } from '@/providers/editor-provider'
 import React, { useMemo } from 'react'
 import { Position,useNodeId } from '@xyflow/react'
-import EditorCanvasIconHelper from './editor-canvas-card-icon-helper'
-import CustomHandle from './custom-handle'
+import EditorCanvasIconHelper  from './editor-canvas-card-icon-helper'
+import CustomHandle from './custon-handle'
 import { Badge } from '@/components/ui/badge'
 
 import {

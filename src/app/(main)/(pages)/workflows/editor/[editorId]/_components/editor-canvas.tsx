@@ -1,14 +1,16 @@
+'use client'
 import { EditorNodeType } from '@/lib/types.ts';
 import { useEditor } from '@/providers/editor-provider';
 import { ReactFlow } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { useMemo } from 'react';
+import EditorCanvasCardSingle from './editor-canvas-card-single';
 type Props={
 
 }
 const initialNodes:EditorNodeType[]=[]
 const initialEdges:{id:string; source:string; target:string}[]=[]
-const EditorCanvas = (props: Props) =>{
+ export const EditorCanvas = (props: Props) =>{
     const {dispatch,state}=useEditor()
     const nodeTypes = useMemo(
         () => ({
