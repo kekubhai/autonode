@@ -1,7 +1,6 @@
 import React from 'react'
 import WorkflowButton from './_components/workflow-button'
-
-import Workflow from './_components/workflow'
+import Workflows from './_components'
 
 type Props = {}
 
@@ -12,12 +11,9 @@ const Page = (props: Props) => {
         Workflows
         <WorkflowButton />
       </h1>
-    <Workflow name={'Creating a test workflow'} description={'Automation Workflow'} id={'332452'} publish={null}/>
-    <Workflow name={'Creating a test workflow'} description={'Automation Workflow'} id={'332452'} publish={null}/>
-    <Workflow name={'Creating a test workflow'} description={'Automation Workflow'} id={'332452'} publish={null}/>
+      <Workflows />
     </div>
   )
-  
 }
 
 export default Page

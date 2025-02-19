@@ -1,12 +1,12 @@
 'use client'
-import { EditorCanvasTypes, EditorNodeType } from '@/lib/types.ts'
+import { EditorCanvasTypes,EditorNodeType } from '@/lib/types.ts'
 import { useNodeConnections } from '@/providers/connections-provider'
 import { useEditor } from '@/providers/editor-provider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import React, { useEffect } from 'react'
 import { Separator } from '@/components/ui/separator'
-import { CONNECTIONS, EditorCanvasDefaultCardTypes, } from '@/lib/constants'
+import { CONNECTIONS,EditorCanvasDefaultCardTypes } from '@/lib/constants'
 import {
   Card,
   CardDescription,
@@ -21,10 +21,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import RenderConnectionAccordion from './render-connection-accordion'
+
+import { useFuzzieStore } from '@/store'
 import { onDragStart } from '@/lib/editor-utils'
-
-
-
 
 type Props = {
   nodes: EditorNodeType[]
@@ -33,10 +33,11 @@ type Props = {
 const EditorCanvasSidebar = ({ nodes }: Props) => {
   const { state } = useEditor()
   const { nodeConnection } = useNodeConnections()
+  const { googleFile, setSlackChannels } = useFuzzieStore()
+  useEffect(() => {
+   
+  }, [state])
 
- 
-
- 
 
   return (
     <aside>
@@ -60,25 +61,61 @@ const EditorCanvasSidebar = ({ nodes }: Props) => {
                 (nodes.length && cardType.type === 'Action')
             )
             .map(([cardKey, cardValue]) => (
-                <Card
+              <Card
                 key={cardKey}
                 draggable
                 className="w-full cursor-grab border-black bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900"
                 onDragStart={(event) =>
-                  onDragStart(event.nativeEvent, cardKey as EditorCanvasTypes)
+                  onDragStart(event, cardKey as EditorCanvasTypes)
                 }
-                >
+              >
                 <CardHeader className="flex flex-row items-center gap-4 p-4">
                   <EditorCanvasIconHelper type={cardKey as EditorCanvasTypes} />
                   <CardTitle className="text-md">
-                  {cardKey}
-                  <CardDescription>{cardValue.description}</CardDescription>
+                    {cardKey}
+                    <CardDescription>{cardValue.description}</CardDescription>
                   </CardTitle>
                 </CardHeader>
-                </Card>
+              </Card>
             ))}
         </TabsContent>
-      
+        <TabsContent
+          value="settings"
+          className="-mt-6"
+        >
+          <div className="px-2 py-4 text-center text-xl font-bold">
+            {state.editor.selectedNode.data.title}
+          </div>
+
+          <Accordion type="multiple">
+            <AccordionItem
+              value="Options"
+              className="border-y-[1px] px-2"
+            >
+              <AccordionTrigger className="!no-underline">
+                Account
+              </AccordionTrigger>
+              <AccordionContent>
+                {CONNECTIONS.map((connection) => (
+                  <RenderConnectionAccordion
+                    key={connection.title}
+                    state={state}
+                    connection={connection}
+                  />
+                ))}
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="Expected Output"
+              className="px-2"
+            >
+              <AccordionTrigger className="!no-underline">
+                Action
+              </AccordionTrigger>
+             
+            </AccordionItem>
+          </Accordion>
+        </TabsContent>
       </Tabs>
     </aside>
   )
