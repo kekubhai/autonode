@@ -1,12 +1,12 @@
 'use client'
-import { EditorCanvasTypes } from '@/lib/types.ts'
+import { EditorCanvasTypes, EditorNodeType } from '@/lib/types.ts'
 import { useNodeConnections } from '@/providers/connections-provider'
 import { useEditor } from '@/providers/editor-provider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 import React, { useEffect } from 'react'
 import { Separator } from '@/components/ui/separator'
-import { CONNECTIONS, EditorCanvasDefaultCardTypes } from '@/lib/constant'
+import { CONNECTIONS, EditorCanvasDefaultCardTypes, } from '@/lib/constants'
 import {
   Card,
   CardDescription,

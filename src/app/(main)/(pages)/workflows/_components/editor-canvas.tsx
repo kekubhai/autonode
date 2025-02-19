@@ -13,10 +13,10 @@ import {
 import { toast } from 'sonner'
 import { usePathname } from 'next/navigation'
 import { v4 } from 'uuid'
-import { EditorCanvasDefaultCardTypes } from '@/lib/constant'
+import { EditorCanvasDefaultCardTypes } from '@/lib/constants'
 import FlowInstance from './flow-instance'
-import EditorCanvasSidebar from './editor-canvas-sidebar'
-import { onGetNodesEdges } from '../../../_actions/workflow-connections'
+import EditorCanvasSidebar from '../editor/[editorId]/_components/editor-canvas-sidebar'
+import { onGetNodesEdges } from '../_actions/workflow-connections'
 
 type Props = {}
 
@@ -80,9 +80,7 @@ const EditorCanvas = (props: Props) => {
         return
       }
 
-      // reactFlowInstance.project was renamed to reactFlowInstance.screenToFlowPosition
-      // and you don't need to subtract the reactFlowBounds.left/top anymore
-      // details: https://reactflow.dev/whats-new/2023-11-10
+
       if (!reactFlowInstance) return
       const position = reactFlowInstance.screenToFlowPosition({
         x: event.clientX,
@@ -102,7 +100,7 @@ const EditorCanvas = (props: Props) => {
           type: type,
         },
       }
-      //@ts-ignore
+   
       setNodes((nds) => nds.concat(newNode))
     },
     [reactFlowInstance, state]
