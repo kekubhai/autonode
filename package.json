@@ -30,6 +30,7 @@
     "@uploadcare/file-uploader": "^1.13.1",
     "@uploadcare/react-uploader": "^1.5.0",
     "@xyflow/react": "^12.4.3",
+    "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
