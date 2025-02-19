@@ -2,7 +2,7 @@
 import { EditorCanvasCardType,EditorNodeType } from '@/lib/types.ts'
 import { useEditor } from '@/providers/editor-provider'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { ReactFlow,Background, EdgeChange, Connection, Edge, NodeChange, ReactFlowInstance, addEdge, Controls, MiniMap } from '@xyflow/react'
+import { ReactFlow,Background, EdgeChange, Connection, Edge, NodeChange, ReactFlowInstance, addEdge, Controls, MiniMap,applyNodeChanges,applyEdgeChanges } from '@xyflow/react'
 import 'reactflow/dist/style.css'
 import EditorCanvasCardSingle from '../editor/[editorId]/_components/editor-canvas-card-single'
 import {
@@ -127,9 +127,9 @@ const EditorCanvas = (props: Props) => {
     })
   }
 
-  useEffect(() => {
-    dispatch({ type: 'LOAD_DATA', payload: { edges, elements: nodes } })
-  }, [nodes, edges])
+useEffect(()=>{
+  dispatch({type:'LOAD_DATA',payload:{edges,elements:nodes}})
+},[nodes,edges])
 
   const nodeTypes = useMemo(
     () => ({

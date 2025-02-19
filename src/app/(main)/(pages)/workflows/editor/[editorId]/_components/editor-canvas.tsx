@@ -17,7 +17,7 @@ import   {
   addEdge,
   ReactFlowProvider,
 } from '@xyflow/react'
-import 'reactflow/dist/style.css'
+import '@xyflow/react/dist/style.css'
 import EditorCanvasCardSingle from './editor-canvas-card-single'
 import {
   ResizableHandle,
