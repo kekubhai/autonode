@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 AutoNode
 
-## Getting Started
+![AutoNode Banner](https://source.unsplash.com/1600x600/?technology,automation)
 
-First, run the development server:
+### An all-in-one automation platform for social media tasks!
 
+AutoNode is a powerful web-based automation tool that seamlessly integrates with **Discord, Notion, Slack, Google Drive**, and more. With an intuitive UI and robust Next.js backend, automate repetitive tasks and boost your productivity effortlessly.
+
+---
+
+## 🔥 Features
+
+✅ **Multi-Platform Integration** – Automate tasks across Discord, Notion, Slack, and Google Drive effortlessly.  
+✅ **No-Code Workflow Builder** – Create automation workflows using a simple drag-and-drop interface.  
+✅ **Real-Time Execution** – Instant trigger-based task execution with logs and insights.  
+✅ **Secure & Scalable** – Built with Next.js for performance, security, and seamless scalability.  
+✅ **Custom API Hooks** – Extend functionality with personalized API calls.  
+✅ **Dark Mode Support** – Enjoy a sleek, modern UI with light and dark themes.  
+
+---
+
+## 🛠 Tech Stack
+
+🔹 **Frontend**: Next.js, Tailwind CSS, TypeScript  
+🔹 **Backend**: Node.js, Express.js  
+🔹 **Database**: PostgreSQL / MongoDB  
+🔹 **Authentication**: NextAuth.js  
+🔹 **Deployment**: Vercel / AWS  
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+ git clone https://github.com/kekubhai/AutoNode.git
+ cd AutoNode
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
+```bash
+ npm install  # or yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3️⃣ Set Up Environment Variables
+Create a `.env.local` file in the root directory and add the required API keys:
+```env
+NEXT_PUBLIC_DISCORD_TOKEN=your_token
+NEXT_PUBLIC_NOTION_KEY=your_key
+NEXT_PUBLIC_SLACK_TOKEN=your_token
+NEXT_PUBLIC_DRIVE_API_KEY=your_key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 4️⃣ Run the Development Server
+```bash
+ npm run dev  # or yarn dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 UI Preview
+![AutoNode UI](https://source.unsplash.com/1200x500/?dashboard,automation)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 📌 Roadmap
+- [ ] Add more integrations (Trello, Twitter, etc.)  
+- [ ] Enhance workflow automation with AI suggestions  
+- [ ] Introduce analytics for workflow performance  
+- [ ] Mobile app version 🚀  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
+We welcome contributions! Feel free to **fork the repo**, create a feature branch, and open a PR.  
+### Steps to Contribute:
+1. Fork the repository 🍴  
+2. Create a new branch `feature/your-feature` 🌱  
+3. Commit your changes and push 🚀  
+4. Open a pull request 📬  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+
+
+### ⭐ Star this repo if you like it! ⭐
+
