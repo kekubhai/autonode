@@ -4,9 +4,9 @@ import { getAuth } from "@clerk/nextjs/server";
 
 const prisma = new PrismaClient();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) :Promise<void> {
   try {
-    // Get Clerk User ID
+    
     const { userId } = getAuth(req);
     if (!userId) {
       return res.status(401).json({ error: "Unauthorized: No user found" });

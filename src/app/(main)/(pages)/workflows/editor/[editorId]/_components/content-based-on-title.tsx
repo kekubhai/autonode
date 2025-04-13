@@ -62,7 +62,7 @@ const ContentBasedOnTitle = ({
       }
     }
     reqGoogle()
-  }, [])
+  }, [setFile])
 
   const onContentChange = (nodeConnection: ConnectionProviderProps, title: string, event: React.ChangeEvent<HTMLInputElement>) => {
     console.log('Content changed:', event.target.value)

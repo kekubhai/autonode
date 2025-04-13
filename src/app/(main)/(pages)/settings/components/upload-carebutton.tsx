@@ -24,6 +24,7 @@ const UploadCareButton = ({onUpload}:Props) => {
 
   // Event listener for Uploadcare Blocks uploader
   useEffect(() => {
+    const currentRef = ctxProviderRef.current;
     const handleFileUpload = async (e: any) => {
       const fileUrl = e.detail.cdnUrl;
       if (fileUrl) {
@@ -31,11 +32,11 @@ const UploadCareButton = ({onUpload}:Props) => {
       }
     };
 
-    ctxProviderRef.current?.addEventListener('file-upload-success', handleFileUpload);
+    currentRef?.addEventListener('file-upload-success', handleFileUpload);
     return () => {
-      ctxProviderRef.current?.removeEventListener('file-upload-success', handleFileUpload);
+      currentRef?.removeEventListener('file-upload-success', handleFileUpload);
     };
-  }, []);
+  }, [handleUpload]);
 
   return (
     <div className="p-4 space-y-6">

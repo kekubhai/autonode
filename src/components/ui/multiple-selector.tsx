@@ -210,7 +210,7 @@ const MultipleSelector = React.forwardRef<
         setSelected(newOptions)
         onChange?.(newOptions)
       },
-      [selected]
+      [selected, onChange]
     )
 
     const handleKeyDown = React.useCallback(
@@ -228,7 +228,7 @@ const MultipleSelector = React.forwardRef<
           }
         }
       },
-      [selected]
+      [selected, handleUnselect]
     )
 
     useEffect(() => {
@@ -250,26 +250,22 @@ const MultipleSelector = React.forwardRef<
 
     useEffect(() => {
       const doSearch = async () => {
+        if (!debouncedSearchTerm || !onSearch) return
         setIsLoading(true)
-        const res = await onSearch?.(debouncedSearchTerm)
-        setOptions(transToGroupOption(res || [], groupBy))
+        const res = await onSearch(debouncedSearchTerm)
+        setOptions(transToGroupOption(res, groupBy))
         setIsLoading(false)
       }
 
       const exec = async () => {
         if (!onSearch || !open) return
-
         if (triggerSearchOnFocus) {
-          await doSearch()
-        }
-
-        if (debouncedSearchTerm) {
           await doSearch()
         }
       }
 
-      void exec()
-    }, [debouncedSearchTerm, open])
+      exec()
+    }, [debouncedSearchTerm, onSearch, open, triggerSearchOnFocus, groupBy])
 
     const CreatableItem = () => {
       if (!creatable) return undefined

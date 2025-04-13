@@ -1,5 +1,5 @@
 import { BookTemplate, Home, Logs } from "lucide-react";
-import { Connection } from "./types";
+import { Connection } from "./types.ts";
 import { Workflow ,Settings, Cat,PartyPopper} from "lucide-react";
 
 export const clients = [
