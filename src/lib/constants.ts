@@ -1,10 +1,14 @@
 import { BookTemplate, Home, Logs } from "lucide-react";
-import { Connection } from "./types.ts";
+import { Connection } from "./types";
 import { Workflow ,Settings, Cat,PartyPopper} from "lucide-react";
 
-export const clients = [...new Array(10)].map((client, index) => ({
-    href: `/${index + 1}.png`,
-  }))
+export const clients = [
+  { href: '/slack.png' },
+  { href: '/notion.png' },
+  { href: '/discord.png' },
+  { href: '/googleDrive.png' },
+  { href: '/logo.png' }
+]
   
   export const products = [
     {

@@ -34,7 +34,7 @@ export default function Home() {
         }
       >
         <Image
-          src={`/linear.webp`}
+          src={`/logo.png`}
           alt="hero"
           height={720}
           width={1400}
