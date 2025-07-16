@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { FileUploaderRegular } from '@uploadcare/react-uploader/next';
 import * as LR from '@uploadcare/file-uploader';
 import { useRouter } from 'next/navigation';
@@ -17,10 +17,10 @@ const UploadCareButton = ({onUpload}:Props) => {
   >(null);
 
   // Function to handle upload success
-  const handleUpload = async (cdnUrl: string) => {
+  const handleUpload = useCallback(async (cdnUrl: string) => {
     console.log('File uploaded:', cdnUrl);
     router.refresh();
-  };
+  }, [router]);
 
   // Event listener for Uploadcare Blocks uploader
   useEffect(() => {

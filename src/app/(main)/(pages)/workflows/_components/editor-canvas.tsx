@@ -3,7 +3,7 @@ import { EditorCanvasCardType,EditorNodeType } from '@/lib/types.ts'
 import { useEditor } from '@/providers/editor-provider'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { ReactFlow,Background, EdgeChange, Connection, Edge, NodeChange, ReactFlowInstance, addEdge, Controls, MiniMap,applyNodeChanges,applyEdgeChanges } from '@xyflow/react'
-import 'reactflow/dist/style.css'
+import '@xyflow/react/dist/style.css'
 import EditorCanvasCardSingle from '../editor/[editorId]/_components/editor-canvas-card-single'
 import {
   ResizableHandle,
@@ -129,7 +129,7 @@ const EditorCanvas = (props: Props) => {
 
 useEffect(()=>{
   dispatch({type:'LOAD_DATA',payload:{edges,elements:nodes}})
-},[nodes,edges])
+},[nodes,edges,dispatch])
 
   const nodeTypes = useMemo(
     () => ({
@@ -149,7 +149,7 @@ useEffect(()=>{
     []
   )
 
-  const onGetWorkFlow = async () => {
+  const onGetWorkFlow = useCallback(async () => {
     setIsWorkFlowLoading(true)
     const response = await onGetNodesEdges(pathname.split('/').pop()!)
     if (response) {
@@ -158,11 +158,11 @@ useEffect(()=>{
       setIsWorkFlowLoading(false)
     }
     setIsWorkFlowLoading(false)
-  }
+  }, [pathname])
 
   useEffect(() => {
     onGetWorkFlow()
-  }, [])
+  }, [onGetWorkFlow])
 
   return (
     <ResizablePanelGroup direction="horizontal">

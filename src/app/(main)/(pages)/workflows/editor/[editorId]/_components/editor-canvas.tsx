@@ -54,7 +54,7 @@ const EditorCanvas = (props: Props) => {
 
   const onNodesChange = useCallback(
     (changes: NodeChange[]) => {
-      //@ts-ignore
+      // @ts-expect-error - ReactFlow types don't match our custom EditorNodeType
       setNodes((nds) => applyNodeChanges(changes, nds))
     },
     [setNodes]
@@ -62,7 +62,6 @@ const EditorCanvas = (props: Props) => {
 
   const onEdgesChange = useCallback(
     (changes: EdgeChange[]) =>
-      //@ts-ignore
       setEdges((eds) => applyEdgeChanges(changes, eds)),
     [setEdges]
   )
@@ -116,7 +115,6 @@ const EditorCanvas = (props: Props) => {
           type: type,
         },
       }
-      //@ts-ignore
       setNodes((nds) => nds.concat(newNode))
     },
     [reactFlowInstance, state]

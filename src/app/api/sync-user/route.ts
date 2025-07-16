@@ -2,8 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 
-export async function GET(req: NextRequest) {
+// Handle GET request (optional)
+export async function GET() {
+  return NextResponse.json({ message: "Use POST to store user data" }, { status: 200 });
+}
+
+// Handle POST request (store user in DB)
+export async function POST() {
   try {
+    // Get Clerk User ID
     const { userId } = await auth();
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized: No user found" }, { status: 401 });
@@ -41,8 +48,4 @@ export async function GET(req: NextRequest) {
     console.error("Error storing user:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
-}
-
-export async function POST(req: NextRequest) {
-  return GET(req); // Handle POST requests the same way
 }

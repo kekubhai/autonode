@@ -23,15 +23,13 @@ export default function RootLayout({
         >
     <html lang="en">
       <body className={inter.className}>
-
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange >
-<ModalProvider>
-
-        {children}
-</ModalProvider>
+          <ModalProvider>
+            {children}
+            <Toaster />
+          </ModalProvider>
         </ThemeProvider>
-       
-        </body>
+      </body>
     </html>
         </ClerkProvider>
   );
